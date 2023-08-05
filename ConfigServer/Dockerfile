@@ -1,4 +1,4 @@
-# Use a lightweight base image for Java
+# Use a lightweight base image for Java1
 # Dockerfile
 FROM openjdk:17-jdk-slim
 
@@ -9,7 +9,7 @@ COPY . .
 RUN ls 
 # RUN ls ServiceRegistry/target
 # Copy the Spring Boot application JAR into the container
-COPY ServiceRegistry/target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
+COPY target/ConfigServer-0.0.1-SNAPSHOT.jar app.jar
 # COPY ConfigServer-0.0.1-SNAPSHOT.jar app.jar
 
 
