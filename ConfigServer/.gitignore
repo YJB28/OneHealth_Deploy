@@ -1,4 +1,8 @@
+# Ignore all files in the target/ directory
+target/*
 
+# Include JAR files inside the target/ directory
+!target/*.jar
 
 ### STS ###
 .apt_generated
