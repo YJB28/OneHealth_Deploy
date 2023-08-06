@@ -14,7 +14,7 @@ import com.onehealth.patientuser.service.PatientUserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/oneHealth-patientuser")
+@RequestMapping("/onehealth-patientuser")
 public class PatientUserController {
 
 	@Autowired

@@ -9,7 +9,7 @@ COPY . .
 RUN ls 
 # RUN ls ServiceRegistry/target
 # Copy the Spring Boot application JAR into the container
-COPY ServiceRegistry/target/OneHealth-PatientUser-0.0.1-SNAPSHOT.jar app.jar
+COPY target/OneHealth-PatientUser-0.0.1-SNAPSHOT.jar app.jar
 # COPY ServiceRegistry-0.0.1-SNAPSHOT.jar app.jar
 
 
