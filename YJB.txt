@@ -13,8 +13,8 @@ The folder structure and naming the microservices for your OneHealth application
 4. User Registration and Login Service:
    - Microservice Name: OneHealth-User
 
-5. Patient Checkout Service:
-   - Microservice Name: OneHealth-PatientCheckout/management
+5. Patient ManagementService:
+   - Microservice Name: OneHealth-PatientManagement
 
 6. Patient Document Management Service:
    - Microservice Name: OneHealth-PatientDocument

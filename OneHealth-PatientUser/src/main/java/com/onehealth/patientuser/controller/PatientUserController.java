@@ -14,13 +14,13 @@ import com.onehealth.patientuser.service.PatientUserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/patientUser")
+@RequestMapping("/oneHealth-patientuser")
 public class PatientUserController {
 
 	@Autowired
 	private PatientUserService patientUserService;
 
-	@GetMapping
+	@GetMapping("/")
 	public String Hello() {
 
 		return "Hello From /patientUser ";

@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/patientProfile")
+//@RequestMapping("/patientProfile")
+@RequestMapping("/oneHealth-patientmanagement")
 public class PatientProfileController {
 	
 	@Autowired
     private PatientProfileService patientProfileService;
 
-    @GetMapping
+    @GetMapping("/")
    public String Hello() {
-	   
-	   return "Hello From Patient";
+	   System.out.println("from 333333333333");
+	   return "Hello From Patient12";
    }
 
     @GetMapping("/{patientId}")
