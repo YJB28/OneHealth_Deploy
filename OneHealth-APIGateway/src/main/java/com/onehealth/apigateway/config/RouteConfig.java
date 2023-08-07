@@ -1,7 +1,9 @@
 package com.onehealth.apigateway.config;
 
-
-
+//
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//
 //import org.springframework.cloud.gateway.route.RouteLocator;
 //import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 //import org.springframework.context.annotation.Bean;
@@ -9,12 +11,16 @@ package com.onehealth.apigateway.config;
 //
 //@Configuration
 //public class RouteConfig {
-//    
-//    @Bean
+//	
+//	private final Logger logger = LoggerFactory.getLogger(RouteConfig.class);
+//	
+//	@Bean
 //    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+//		logger.info("28");
+//		
 //        return builder.routes()
 //        		
-//                .route("PatientUser", r -> r.path("/oneHealth-patientuser/**").uri("lb://OneHealth-PatientUser"))
+//                .route("PatientUser", r -> r.path("/onehealthpatientuser/**").uri("lb://onehealthpatientuser"))
 //                .route("PatientManagement", r -> r.path("/patientProfile/**").uri("lb://OneHealth-PatientManagement"))
 //                .route("LifeStyleAndHistory", r -> r.path("/lifeStyleAndHistory/**").uri("lb://OneHealth-LifeStyleAndHistory"))
 //                .route("OneHealth-DoctorAppointment", r -> r.path("/doctorAppointment/**").uri("lb://OneHealth-Appointment"))
@@ -59,9 +65,9 @@ public class RouteConfig {
             String baseRoute = "/" + serviceName.toLowerCase();
 
             // Add routes for specific paths under the base route
-            routes.route(serviceName + "-route", r -> r.path(baseRoute + "/**")
-                    .filters(f -> f.stripPrefix(1)) // Strip the base route from the path
-                    .uri("lb://" + serviceName + "-" + getPodName(serviceName)));
+            routes.route(serviceName , r -> r.path("/onehealth/**")
+//                    .filters(f -> f.stripPrefix(1)) // Strip the base route from the path
+                    .uri("lb://" + getPodName(serviceName)));
         }
 
         // Add more routes or filters as needed
@@ -73,8 +79,9 @@ public class RouteConfig {
         String podName = eurekaDiscoveryClient.getInstances(serviceName).get(0).getHost();
         logger.info("Pod name for service {} is {}", serviceName, podName);
         logger.info("111111111111111111");
-        logger.info(podName.substring(podName.indexOf("-") + 1));
+        logger.info("lbbbbbb name  "+podName.toLowerCase());
         logger.info("22222222222222222");
-        return podName.substring(podName.indexOf("-") + 1);
+//        return podName.substring(podName.indexOf("-") + 1);
+        return podName.toLowerCase();
     }
 }

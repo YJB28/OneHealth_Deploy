@@ -14,7 +14,7 @@ import com.onehealth.patientuser.service.PatientUserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/onehealthpatientuser")
+@RequestMapping("/onehealth")
 public class PatientUserController {
 
 	@Autowired
@@ -22,8 +22,9 @@ public class PatientUserController {
 
 	@GetMapping("/")
 	public String Hello() {
-
-		return "Hello From /patientUser ";
+		
+		System.out.println("555555555");
+		return "Hello From /patientUser22 ";
 	}
 
 	@GetMapping("/all")
