@@ -7,7 +7,9 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin("*")
 @Configuration
 public class RouteConfig {
 
@@ -28,7 +30,7 @@ public class RouteConfig {
 						r -> r.path("/lifeStyleAndHistory/**").uri(
 								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("OneHealth-DoctorAppointment",
-						r -> r.path("/doctorAppointment/**").uri("lb://OneHealth-Appointment"))
+						r -> r.path("/doctorAppointment/**").uri("https://doctorappointment-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				// Add more routes for other microservices as needed
 				.build();
 	}

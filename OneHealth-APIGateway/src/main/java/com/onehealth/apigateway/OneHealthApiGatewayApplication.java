@@ -3,11 +3,14 @@ package com.onehealth.apigateway;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
+@CrossOrigin("*")
 @RestController
+
 //@RefreshScope
 //@EnableEurekaClient //no need to from Boot version 3
 public class OneHealthApiGatewayApplication {
@@ -19,7 +22,7 @@ public class OneHealthApiGatewayApplication {
 	@GetMapping
 	public String Welcome() {
 		
-		return "Welcome From OneHealth Team (OneHealth-APIGateWay)!!!";
+		return "Welcome From InfobellIT Backend Team (OneHealth-APIGateWay)!!!";
 	}
 
 }
