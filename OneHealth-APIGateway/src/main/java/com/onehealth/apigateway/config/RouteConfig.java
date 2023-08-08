@@ -20,10 +20,13 @@ public class RouteConfig {
 		return builder.routes()
 
 				.route("PatientUser",
-						r -> r.path("/patientUser/**").uri("https://onehealthpatientuser-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
-				.route("PatientManagement", r -> r.path("/patientProfile/**").uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+						r -> r.path("/patientUser/**").uri(
+								"https://onehealthpatientuser-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("PatientManagement", r -> r.path("/patientProfile/**")
+						.uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("LifeStyleAndHistory",
-						r -> r.path("/lifeStyleAndHistory/**").uri("https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+						r -> r.path("/lifeStyleAndHistory/**").uri(
+								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("OneHealth-DoctorAppointment",
 						r -> r.path("/doctorAppointment/**").uri("lb://OneHealth-Appointment"))
 				// Add more routes for other microservices as needed
