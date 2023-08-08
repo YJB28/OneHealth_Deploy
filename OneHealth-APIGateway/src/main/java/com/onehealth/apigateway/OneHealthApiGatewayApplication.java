@@ -22,7 +22,7 @@ public class OneHealthApiGatewayApplication {
 	@GetMapping
 	public String Welcome() {
 		
-		return "Welcome From InfobellIT Backend Team (OneHealth-APIGateWay)!!!";
+		return "Welcome From Infobell Backend Team (OneHealth-APIGateWay)!!!";
 	}
 
 }
