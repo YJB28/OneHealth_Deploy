@@ -33,7 +33,7 @@ public class PatientProfileController {
     @GetMapping
     public String Hello() {
         logger.info("Received a GET request to root endpoint");
-        return "Hello From Patient";
+        return "Hello From Patient...";
     }
 
     /**
