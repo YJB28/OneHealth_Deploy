@@ -21,7 +21,7 @@ RUN ls
 RUN pwd
 
 # Copy the compiled JAR from the build stage into the container
-COPY --from=build target/OneHealth-APIGateway-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build target/OneHealth-PatientManagement-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the port your Spring Boot application is running on (change the port accordingly)
 EXPOSE 8082
