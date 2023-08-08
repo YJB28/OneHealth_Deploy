@@ -15,15 +15,15 @@ public class RouteConfig {
 
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-		logger.info("28");
+		logger.info("28...");
 
 		return builder.routes()
 
 				.route("PatientUser",
-						r -> r.path("/patientUser/**").uri("https://onehealthpatient-srishtirupa-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
-				.route("PatientManagement", r -> r.path("/patientProfile/**").uri("https://onehealthpatientmanagement-srishtirupa-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+						r -> r.path("/patientUser/**").uri("https://onehealthpatientuser-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("PatientManagement", r -> r.path("/patientProfile/**").uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("LifeStyleAndHistory",
-						r -> r.path("/lifeStyleAndHistory/**").uri("https://lifestyleandhistory-srishtirupa-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+						r -> r.path("/lifeStyleAndHistory/**").uri("https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("OneHealth-DoctorAppointment",
 						r -> r.path("/doctorAppointment/**").uri("lb://OneHealth-Appointment"))
 				// Add more routes for other microservices as needed

@@ -10,38 +10,73 @@ import jakarta.persistence.Id;
 @Entity
 public class PatientProfile {
 
-	
+	// Primary key for the patient profile
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long patientId;
+
+	// User ID associated with the patient
 	private long userId;
+
+	// First name of the patient
 	private String firstName;
+
+	// Last name of the patient
 	private String lastName;
+
+	// Mobile number of the patient
 	private String mobileNumber;
+
+	// Address of the patient
 	private String address;
+
+	// Pin code of the patient's address
 	private int pinCode;
+
+	// Country of the patient
 	private String country;
+
+	// City of the patient
 	private String city;
+
+	// Gender of the patient
 	private String gender;
+
+	// Age of the patient
 	private int age;
+
+	// Date of birth of the patient
 	private Date dob;
+
+	// Blood group of the patient
 	private String bloodGroup;
+
+	// Height of the patient
 	private float height;
+
+	// Weight of the patient
 	private float weight;
+
+	// Marital status of the patient
 	private String maritalStatus;
+
+	// Email ID of the patient
 	private String emailId;
-	
+
+	// Default constructor for the PatientProfile class
 	public PatientProfile() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PatientProfile(long patientId, long userId, String mobileNumber, String address, int pinCode, String country,
-			String city, String gender, int age, Date dob, String bloodGroup, float height, float weight,
-			String maritalStatus, String emailId) {
+	public PatientProfile(long patientId, long userId, String firstName, String lastName, String mobileNumber,
+			String address, int pinCode, String country, String city, String gender, int age, Date dob,
+			String bloodGroup, float height, float weight, String maritalStatus, String emailId) {
 		super();
 		this.patientId = patientId;
 		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.mobileNumber = mobileNumber;
 		this.address = address;
 		this.pinCode = pinCode;
@@ -55,6 +90,15 @@ public class PatientProfile {
 		this.weight = weight;
 		this.maritalStatus = maritalStatus;
 		this.emailId = emailId;
+	}
+
+	@Override
+	public String toString() {
+		return "PatientProfile [patientId=" + patientId + ", userId=" + userId + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", mobileNumber=" + mobileNumber + ", address=" + address + ", pinCode="
+				+ pinCode + ", country=" + country + ", city=" + city + ", gender=" + gender + ", age=" + age + ", dob="
+				+ dob + ", bloodGroup=" + bloodGroup + ", height=" + height + ", weight=" + weight + ", maritalStatus="
+				+ maritalStatus + ", emailId=" + emailId + "]";
 	}
 
 	public long getPatientId() {
@@ -71,6 +115,22 @@ public class PatientProfile {
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getMobileNumber() {
@@ -177,15 +237,5 @@ public class PatientProfile {
 		this.emailId = emailId;
 	}
 
-	@Override
-	public String toString() {
-		return "PatientProfile [patientId=" + patientId + ", userId=" + userId + ", mobileNumber=" + mobileNumber
-				+ ", address=" + address + ", pinCode=" + pinCode + ", country=" + country + ", city=" + city
-				+ ", gender=" + gender + ", age=" + age + ", dob=" + dob + ", bloodGroup=" + bloodGroup + ", height="
-				+ height + ", weight=" + weight + ", maritalStatus=" + maritalStatus + ", emailId=" + emailId + "]";
-	}
-	
-	
-	
 	
 }

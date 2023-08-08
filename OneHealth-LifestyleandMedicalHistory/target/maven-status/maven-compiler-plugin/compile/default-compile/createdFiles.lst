@@ -1,0 +1,17 @@
+com\onehealth\lifestyleandhistory\service\MedicalHistoryService.class
+com\onehealth\lifestyleandhistory\exception\GlobalExceptionHandler.class
+com\onehealth\lifestyleandhistory\service\LifeStyleService.class
+com\onehealth\lifestyleandhistory\DTO\ErrorMessageDTO.class
+com\onehealth\lifestyleandhistory\exception\RecordNotFoundException.class
+com\onehealth\lifestyleandhistory\controller\LifeStyleController.class
+com\onehealth\lifestyleandhistory\entity\LifeStyle.class
+com\onehealth\lifestyleandhistory\controller\MedicalHistoryController.class
+com\onehealth\lifestyleandhistory\repository\LifeStyleRepository.class
+com\onehealth\lifestyleandhistory\serviceimpl\MedicalHistoryServiceImpl.class
+com\onehealth\lifestyleandhistory\exception\DatabaseException.class
+com\onehealth\lifestyleandhistory\repository\MedicalHistoryRepository.class
+com\onehealth\lifestyleandhistory\serviceimpl\LifeStyleServiceImpl.class
+com\onehealth\lifestyleandhistory\entity\MedicalHistory.class
+com\onehealth\lifestyleandhistory\DTO\ResponseMessage.class
+com\onehealth\lifestyleandhistory\OneHealthLifeStyleAndHistoryApplication.class
+com\onehealth\lifestyleandhistory\exception\ProfileNotFoundException.class

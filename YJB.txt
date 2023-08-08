@@ -90,3 +90,10 @@ DataBase
 
 CREATE DATABASE onehealth_user_db;
 CREATE DATABASE onehealth_patientcheckout_db;
+
+APPLICATION_NAME patient
+POSTGRES_HOST  postgresql
+POSTGRES_USER  userIHF postgres
+POSTGRES_PASSWORD  iVTyJAxJr6YYvxwN postgres
+POSTGRES_DB onehealthdb
+EUREKA_SERVER link/eureka
