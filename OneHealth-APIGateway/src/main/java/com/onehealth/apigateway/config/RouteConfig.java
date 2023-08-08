@@ -8,31 +8,30 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@CrossOrigin("*")
 @Configuration
 public class RouteConfig {
 
 	private final Logger logger = LoggerFactory.getLogger(RouteConfig.class);
-	
+
 	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("*")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")
-                        .allowedHeaders("*");
-            }
-        };
-    }
-	
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "PUT", "DELETE")
+						.allowedHeaders("*");
+			}
+		};
+	}
+
+	// This route is defined using the @CrossOrigin annotation
+	@CrossOrigin("*")
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-		logger.info("28...");
+		logger.info("28");
 
 		return builder.routes()
 
@@ -45,11 +44,13 @@ public class RouteConfig {
 						r -> r.path("/lifeStyleAndHistory/**").uri(
 								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("OneHealth-DoctorAppointment",
-						r -> r.path("/doctorAppointment/**").uri("https://doctorappointment-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+						r -> r.path("/doctorAppointment/**")
+								.uri("https://doctorappointment-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				// Add more routes for other microservices as needed
 				.build();
 	}
 }
+
 
 //===
 

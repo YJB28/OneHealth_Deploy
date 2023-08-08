@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RestController
 
 //@RefreshScope
@@ -22,7 +22,7 @@ public class OneHealthApiGatewayApplication {
 	@GetMapping
 	public String Welcome() {
 		
-		return "Welcome From Infobell Backend Team (OneHealth-APIGateWay)!!!";
+		return "Welcome From Infobell Backend Team... (OneHealth-APIGateWay)!!!";
 	}
 
 }
