@@ -13,6 +13,7 @@ import com.onehealth.patientuser.service.PatientUserService;
 
 import java.util.List;
 
+//@CrossOrigin("*")
 @RestController
 @RequestMapping("/patientUser")
 public class PatientUserController {
@@ -20,7 +21,7 @@ public class PatientUserController {
 	@Autowired
 	private PatientUserService patientUserService;
 
-	@GetMapping("/")
+	@GetMapping
 	public String Hello() {
 		
 		System.out.println("555555555");

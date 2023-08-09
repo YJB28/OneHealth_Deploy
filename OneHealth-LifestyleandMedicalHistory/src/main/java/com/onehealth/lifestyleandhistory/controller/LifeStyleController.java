@@ -13,7 +13,7 @@ import com.onehealth.lifestyleandhistory.service.LifeStyleService;
 
 import java.util.List;
 
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RestController
 @RequestMapping("/lifeStyleAndHistory/lifeStyle")
 /**

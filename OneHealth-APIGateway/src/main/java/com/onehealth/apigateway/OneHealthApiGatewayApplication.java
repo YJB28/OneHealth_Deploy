@@ -2,15 +2,13 @@ package com.onehealth.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@CrossOrigin("*")
+//@CrossOrigin("*")
 @RestController
 
 //@RefreshScope
@@ -24,7 +22,7 @@ public class OneHealthApiGatewayApplication {
 	@GetMapping
 	public String Welcome() {
 		
-		return "Welcome From Infobell Backend Team2 (OneHealth-APIGateWay)!!!";
+		return "Welcome From Infobell Backend Team (OneHealth-APIGateWay)!!";
 	}
 	
 	@PostMapping

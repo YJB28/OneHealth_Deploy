@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin("*")
+//@CrossOrigin("*") //remove we set globally on apigateway
 @RestController
 @RequestMapping("/patientProfile")
 /**
@@ -33,7 +33,7 @@ public class PatientProfileController {
     @GetMapping
     public String Hello() {
         logger.info("Received a GET request to root endpoint");
-        return "Hello From Patient...";
+        return "Hello From Patient..";
     }
 
     /**
