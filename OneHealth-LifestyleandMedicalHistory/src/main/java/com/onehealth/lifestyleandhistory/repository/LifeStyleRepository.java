@@ -1,8 +1,13 @@
 package com.onehealth.lifestyleandhistory.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 
 import com.onehealth.lifestyleandhistory.entity.LifeStyle;
+
+import jakarta.transaction.Transactional;
 
 /**
  * The `LifeStyleRepository` interface extends JpaRepository to provide the necessary
@@ -11,5 +16,15 @@ import com.onehealth.lifestyleandhistory.entity.LifeStyle;
  * repository, allowing interactions with the database and the LifeStyle table.
  */
 public interface LifeStyleRepository extends JpaRepository<LifeStyle, Long> {
+
+	Optional<LifeStyle> findByPatientId(Long patientId);
+
+    boolean existsByPatientId(Long patientId);
+
+    @Modifying
+    @Transactional
+    void deleteByPatientId(Long patientId);
+
+	
 
 }

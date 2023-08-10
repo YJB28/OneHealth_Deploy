@@ -29,10 +29,10 @@ public class RouteConfig {
 						r -> r.path("/api/doctors/**")
 								.uri("https://feesservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 				.route("OneHealth-DoctorSchedule",
-						r -> r.path("/api/doctors/**").uri(
+						r -> r.path("/api/doctors/schedule**").uri(
 								"https://doctorscheduleservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 				.route("OneHealth-bankdetails",
-						r -> r.path("/api/doctors/**")
+						r -> r.path("/api/doctors/doctorbankdetails/**")
 								.uri("https://bankdetails-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 				// Add more routes for other microservices as needed
 				.build();

@@ -1,37 +1,37 @@
 package com.onehealth.lifestyleandhistory.service;
 
-import java.util.List;
-
 import com.onehealth.lifestyleandhistory.entity.LifeStyle;
 import com.onehealth.lifestyleandhistory.exception.RecordNotFoundException;
 
+import java.util.List;
+
 /**
- * The `LifeStyleService` interface defines the contract for interacting with
- * LifeStyle-related business logic. It declares methods for performing CRUD
- * (Create, Read, Update, Delete) operations on LifeStyle entities.
+ * The LifeStyleService interface defines operations for managing lifestyle-related data.
+ * This interface provides methods for retrieving, creating, updating, and deleting lifestyle records.
+ * Author: Yogesh
  */
 public interface LifeStyleService {
-    
+
     /**
      * Retrieves a list of all LifeStyle records.
      *
-     * @return A list of all LifeStyle records.
+     * @return List of LifeStyle records.
      */
     List<LifeStyle> getAllLifeStyles();
 
     /**
-     * Retrieves a LifeStyle record by its unique ID.
+     * Retrieves a specific LifeStyle record by its patient ID.
      *
-     * @param lId The unique ID of the LifeStyle.
-     * @return The LifeStyle object corresponding to the given ID.
-     * @throws RecordNotFoundException If no LifeStyle record is found for the given ID.
+     * @param patientId The unique ID of the patient associated with the LifeStyle record.
+     * @return The retrieved LifeStyle record.
+     * @throws RecordNotFoundException If the record is not found.
      */
-    LifeStyle getLifestyleBylId(Long lId) throws RecordNotFoundException;
+    LifeStyle getLifestyleByPatientId(Long patientId) throws RecordNotFoundException;
 
     /**
      * Creates a new LifeStyle record.
      *
-     * @param lifestyle The LifeStyle record to create.
+     * @param lifestyle The LifeStyle object to be created.
      * @return The created LifeStyle record.
      */
     LifeStyle createLifestyle(LifeStyle lifestyle);
@@ -39,18 +39,18 @@ public interface LifeStyleService {
     /**
      * Updates an existing LifeStyle record.
      *
-     * @param lId The ID of the LifeStyle record to update.
-     * @param lifestyle The updated LifeStyle information.
+     * @param patientId The unique ID of the patient associated with the LifeStyle record.
+     * @param lifestyle The updated LifeStyle object.
      * @return The updated LifeStyle record.
-     * @throws RecordNotFoundException If the LifeStyle record is not found.
+     * @throws RecordNotFoundException If the record is not found.
      */
-    LifeStyle updateLifestyle(Long lId, LifeStyle lifestyle) throws RecordNotFoundException;
+    LifeStyle updateLifestyleByPatientId(Long patientId, LifeStyle lifestyle) throws RecordNotFoundException;
 
     /**
-     * Deletes a LifeStyle record by its ID.
+     * Deletes a LifeStyle record by its patient ID.
      *
-     * @param lId The ID of the LifeStyle record to delete.
-     * @throws RecordNotFoundException If the LifeStyle record is not found.
+     * @param patientId The unique ID of the patient associated with the LifeStyle record.
+     * @throws RecordNotFoundException If the record is not found.
      */
-    void deleteLifestyle(Long lId) throws RecordNotFoundException;
+    void deleteLifestyleByPatientId(Long patientId) throws RecordNotFoundException;
 }

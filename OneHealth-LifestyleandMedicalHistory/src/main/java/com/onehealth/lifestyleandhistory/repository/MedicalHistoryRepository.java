@@ -1,25 +1,25 @@
 package com.onehealth.lifestyleandhistory.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.onehealth.lifestyleandhistory.entity.MedicalHistory;
 
-/**
- * The `MedicalHistoryRepository` interface extends JpaRepository to provide the necessary
- * methods for performing CRUD (Create, Read, Update, Delete) operations on the
- * MedicalHistory entity. It automatically generates the implementation for the
- * repository, allowing interactions with the database and the MedicalHistory table.
- */
+import jakarta.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
 public interface MedicalHistoryRepository extends JpaRepository<MedicalHistory, Long> {
+	Optional<MedicalHistory> findByPatientId(Long patientId);
 
-    /**
-     * Retrieves a list of MedicalHistory records based on the provided patientId and userId.
-     *
-     * @param patientId The ID of the patient.
-     * @param userId The ID of the user.
-     * @return A list of MedicalHistory records associated with the specified patient and user.
-     */
-    List<MedicalHistory> findByPatientIdAndUserId(Long patientId, Long userId);
+	List<MedicalHistory> findByPatientIdAndUserId(Long patientId, Long userId);
 
+	boolean existsByPatientId(Long patientId);
+
+	@Modifying
+	@Transactional
+	void deleteByPatientId(Long patientId);
 }

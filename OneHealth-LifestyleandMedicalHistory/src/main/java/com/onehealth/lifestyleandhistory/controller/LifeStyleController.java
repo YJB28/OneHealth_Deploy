@@ -60,11 +60,11 @@ public class LifeStyleController {
      * @return The retrieved lifestyle along with an appropriate HTTP status.
      * @throws RecordNotFoundException If the specified lifestyle is not found.
      */
-    @GetMapping("/{lID}")
-    public ResponseEntity<LifeStyle> getLifestyleBySNo(@PathVariable Long lID) throws RecordNotFoundException {
-        logger.info("Received a GET request to retrieve lifestyle by serial number: {}", lID);
+    @GetMapping("/{patientId}")
+    public ResponseEntity<LifeStyle> getLifestyleByPatientId(@PathVariable Long patientId) throws RecordNotFoundException {
+        logger.info("Received a GET request to retrieve lifestyle by patientId : {}", patientId);
 
-        LifeStyle lifestyle = lifestyleService.getLifestyleBylId(lID);
+        LifeStyle lifestyle = lifestyleService.getLifestyleByPatientId(patientId);
         logger.info("Retrieved lifestyle: {}", lifestyle);
 
         return new ResponseEntity<>(lifestyle, HttpStatus.OK);
@@ -93,12 +93,12 @@ public class LifeStyleController {
      * @return A success message along with an appropriate HTTP status.
      * @throws RecordNotFoundException If the specified lifestyle is not found.
      */
-    @PutMapping("/{lID}")
-    public ResponseEntity<String> updateLifestyle(@PathVariable Long lID, @RequestBody LifeStyle lifestyle)
+    @PutMapping("/{patientId}")
+    public ResponseEntity<String> updateLifestyleByPatientId(@PathVariable Long patientId, @RequestBody LifeStyle lifestyle)
             throws RecordNotFoundException {
-        logger.info("Received a PUT request to update lifestyle with serial number: {}", lID);
+        logger.info("Received a PUT request to update lifestyle with patientId : {}", patientId);
 
-        lifestyleService.updateLifestyle(lID, lifestyle);
+        lifestyleService.updateLifestyleByPatientId(patientId, lifestyle);
 
         return new ResponseEntity<>(" LifeStyle Updated Successfully", HttpStatus.OK);
     }
@@ -110,12 +110,14 @@ public class LifeStyleController {
      * @return A success message along with an appropriate HTTP status.
      * @throws RecordNotFoundException If the specified lifestyle is not found.
      */
-    @DeleteMapping("/{lID}")
-    public ResponseEntity<String> deleteLifestyle(@PathVariable Long lID) throws RecordNotFoundException {
-        logger.info("Received a DELETE request to delete lifestyle with serial number: {}", lID);
-
-        lifestyleService.deleteLifestyle(lID);
-
-        return new ResponseEntity<>(" LifeStyle Deleted Successfully", HttpStatus.OK);
+    @DeleteMapping("/{patientId}")
+    public ResponseEntity<String> deleteLifestyle(@PathVariable Long patientId) {
+        try {
+            lifestyleService.deleteLifestyleByPatientId(patientId);
+            return new ResponseEntity<>("LifeStyle Deleted Successfully", HttpStatus.OK);
+        } catch (RecordNotFoundException e) {
+            return new ResponseEntity<>("LifeStyle not found with patientId: " + patientId, HttpStatus.NOT_FOUND);
+        }
     }
+
 }

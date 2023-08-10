@@ -1,65 +1,68 @@
 package com.onehealth.lifestyleandhistory.service;
 
-import java.util.List;
-
 import com.onehealth.lifestyleandhistory.entity.MedicalHistory;
+import com.onehealth.lifestyleandhistory.exception.DatabaseException;
 import com.onehealth.lifestyleandhistory.exception.RecordNotFoundException;
 
+import java.util.List;
+
 /**
- * The `MedicalHistoryService` interface defines the contract for interacting
- * with MedicalHistory-related business logic. It declares methods for
- * performing CRUD (Create, Read, Update, Delete) operations on MedicalHistory entities.
+ * The MedicalHistoryService interface defines the operations for managing medical history-related data.
+ * It provides methods for retrieving, creating, updating, and deleting medical history records.
+ * <p>
+ * This interface is intended to be implemented by concrete service classes.
  */
 public interface MedicalHistoryService {
-    
+
     /**
-     * Retrieves a list of all MedicalHistory records.
+     * Retrieves a list of all medical history records.
      *
-     * @return A list of all MedicalHistory records.
+     * @return List of MedicalHistory records.
      */
     List<MedicalHistory> getAllMedicalHistories();
 
     /**
-     * Retrieves a MedicalHistory record by its unique record ID.
+     * Retrieves a specific medical history record by its patient ID.
      *
-     * @param recordId The unique record ID of the MedicalHistory.
-     * @return The MedicalHistory object corresponding to the given record ID.
-     * @throws RecordNotFoundException If no MedicalHistory record is found for the given record ID.
+     * @param patientId The unique ID of the patient associated with the medical history.
+     * @return The retrieved MedicalHistory record.
+     * @throws RecordNotFoundException If the record is not found.
      */
-    MedicalHistory getMedicalHistoryByRecordId(Long recordId) throws RecordNotFoundException;
+    MedicalHistory getMedicalHistoryByPatientId(Long patientId) throws RecordNotFoundException;
 
     /**
-     * Creates a new MedicalHistory record.
+     * Creates a new medical history record.
      *
-     * @param medicalHistory The MedicalHistory record to create.
+     * @param medicalHistory The MedicalHistory object to be created.
      * @return The created MedicalHistory record.
+     * @throws DatabaseException If there is an issue with the database operation.
      */
-    MedicalHistory createMedicalHistory(MedicalHistory medicalHistory);
+    MedicalHistory createMedicalHistory(MedicalHistory medicalHistory) throws DatabaseException;
 
     /**
-     * Updates an existing MedicalHistory record.
+     * Updates an existing medical history record.
      *
-     * @param recordId The record ID of the MedicalHistory record to update.
-     * @param medicalHistory The updated MedicalHistory information.
+     * @param patientId      The unique ID of the patient associated with the medical history record to be updated.
+     * @param medicalHistory The updated MedicalHistory object.
      * @return The updated MedicalHistory record.
-     * @throws RecordNotFoundException If the MedicalHistory record is not found.
+     * @throws RecordNotFoundException If the record is not found.
      */
-    MedicalHistory updateMedicalHistory(Long recordId, MedicalHistory medicalHistory) throws RecordNotFoundException;
+    MedicalHistory updateMedicalHistory(Long patientId, MedicalHistory medicalHistory) throws RecordNotFoundException;
 
     /**
-     * Deletes a MedicalHistory record by its record ID.
+     * Deletes a medical history record by its patient ID.
      *
-     * @param recordId The record ID of the MedicalHistory record to delete.
-     * @throws RecordNotFoundException If the MedicalHistory record is not found.
+     * @param patientId The unique ID of the patient associated with the medical history record to be deleted.
+     * @throws RecordNotFoundException If the record is not found.
      */
-    void deleteMedicalHistoryByRecordId(Long recordId) throws RecordNotFoundException;
+    void deleteMedicalHistoryByPatientId(Long patientId) throws RecordNotFoundException;
 
     /**
-     * Deletes all MedicalHistory records associated with a specific patient ID and user ID.
+     * Deletes all medical history records associated with a specific patient ID and user ID.
      *
      * @param patientId The patient ID.
-     * @param userId The user ID.
-     * @throws RecordNotFoundException If no MedicalHistory records are found for the given patient and user IDs.
+     * @param userId    The user ID.
+     * @throws RecordNotFoundException If no medical history records are found for the given patient ID and user ID.
      */
     void deleteMedicalHistoryByPatientIdAndUserId(Long patientId, Long userId) throws RecordNotFoundException;
 }
