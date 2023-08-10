@@ -26,7 +26,7 @@ public class RouteConfig {
 						r -> r.path("/lifeStyleAndHistory/**").uri(
 								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("OneHealth-feesservice",
-						r -> r.path("/api/doctors/**")
+						r -> r.path("/api/doctors/doctorfees**")
 								.uri("https://feesservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 				.route("OneHealth-DoctorSchedule",
 						r -> r.path("/api/doctors/schedule**").uri(
