@@ -14,7 +14,7 @@ public class RouteConfig {
 
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-		logger.info("...28...");
+		logger.info("...2...");
 
 		return builder.routes()
 				.route("PatientUser",
@@ -25,11 +25,18 @@ public class RouteConfig {
 				.route("LifeStyleAndHistory",
 						r -> r.path("/lifeStyleAndHistory/**").uri(
 								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
-				.route("OneHealth-DoctorAppointment",
-						r -> r.path("/doctorAppointment/**")
-								.uri("https://doctorappointment-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("OneHealth-feesservice",
+						r -> r.path("/api/doctors/**")
+								.uri("https://feesservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				.route("OneHealth-DoctorSchedule",
+						r -> r.path("/api/doctors/**").uri(
+								"https://doctorscheduleservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				.route("OneHealth-bankdetails",
+						r -> r.path("/api/doctors/**")
+								.uri("https://bankdetails-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 				// Add more routes for other microservices as needed
 				.build();
+
 	}
 }
 
