@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OneHealth Communication App</title>
+</head>
+
+<body>
+	<h1>Welcome to Twilio Communication App (OneHealth)</h1>
+
+	<!-- Your form and other HTML content here -->
+	<form id="smsForm">
+		<label for="to">To:</label>
+		<input type="text" id="to" name="to" required>
+		<label for="message">Message:</label>
+		<input type="text" id="message" name="message" required>
+		<button type="submit">Send SMS</button>
+	</form>
+
+	<hr>
+
+	<form id="voiceCallForm">
+		<label for="identity">Identity:</label>
+		<input type="text" id="identity" name="identity" required>
+		<button type="submit">Generate Voice Call Token</button>
+	</form>
+
+	<script src="/app.js"></script>
+</body>
+
+</html>
