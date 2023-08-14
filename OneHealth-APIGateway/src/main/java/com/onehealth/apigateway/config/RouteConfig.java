@@ -20,17 +20,26 @@ public class RouteConfig {
 				.route("PatientUser",
 						r -> r.path("/patientUser/**").uri(
 								"https://onehealthpatientuser-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				
 				.route("PatientManagement", r -> r.path("/patientProfile/**")
 						.uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				
 				.route("LifeStyleAndHistory",
 						r -> r.path("/lifeStyleAndHistory/**").uri(
 								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				
+				.route("InventoryManagement",
+						r -> r.path("/InventoryManagement/**").uri(
+								"https://inventorymanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				
 				.route("OneHealth-feesservice",
 						r -> r.path("/api/doctors/doctorfees**")
 								.uri("https://feesservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				
 				.route("OneHealth-DoctorSchedule",
 						r -> r.path("/api/doctors/schedule**").uri(
 								"https://doctorscheduleservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				
 				.route("OneHealth-bankdetails",
 						r -> r.path("/api/doctors/doctorbankdetails/**")
 								.uri("https://bankdetails-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
