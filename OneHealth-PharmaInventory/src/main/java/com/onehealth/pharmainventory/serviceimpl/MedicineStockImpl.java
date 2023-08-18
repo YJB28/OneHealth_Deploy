@@ -53,4 +53,19 @@ public class MedicineStockImpl implements MedicineStockService {
 		// TODO Auto-generated method stub
 		return medicineStockRepository.findAll();
 	}
+
+	@Override
+	public List<MedicineStock> getMedicineStockByMedicineAndPharmaId(Integer medicineId, Integer pharmaId) {
+		return medicineStockRepository.findByMedicineIdAndPharmaId(medicineId, pharmaId);
+	}
+
+	@Override
+	public List<MedicineStock> getMedicineStockByMedicineId(Integer medicineId) {
+		return medicineStockRepository.findByMedicineId(medicineId);
+	}
+
+	@Override
+	public List<MedicineStock> getMedicineStockByPharmaId(Integer pharmaId) {
+		return medicineStockRepository.findByPharmaId(pharmaId);
+	}
 }

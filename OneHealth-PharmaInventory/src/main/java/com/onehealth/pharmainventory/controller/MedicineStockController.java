@@ -5,6 +5,7 @@ import com.onehealth.pharmainventory.exception.ProfileNotFoundException;
 import com.onehealth.pharmainventory.service.MedicineStockService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,5 +51,28 @@ public class MedicineStockController {
 			throws ProfileNotFoundException {
 		medicineStockService.deleteInventory(medicineStockId);
 		return new ResponseEntity<>("Inventory Deleted Successfully", HttpStatus.OK);
+	}
+
+	@GetMapping("/medicineStock/byMedicineAndPharmaID/medicineID/{medicineId}/pharmaID/{pharmaId}")
+	public ResponseEntity<List<MedicineStock>> getMedicineStockByMedicineAndPharma(@PathVariable Integer medicineId,
+			@PathVariable Integer pharmaId) throws ProfileNotFoundException {
+		List<MedicineStock> medicineStock = medicineStockService.getMedicineStockByMedicineAndPharmaId(medicineId,
+				pharmaId);
+		return new ResponseEntity<>(medicineStock, HttpStatus.OK);
+	}
+
+	@GetMapping("/medicineStock/byMedicineID/{medicineId}")
+	public ResponseEntity<List<MedicineStock>> getMedicineStockByMedicine(@PathVariable Integer medicineId)
+			throws ProfileNotFoundException {
+		List<MedicineStock> medicineStock = medicineStockService.getMedicineStockByMedicineId(medicineId);
+		return new ResponseEntity<>(medicineStock, HttpStatus.OK);
+	}
+
+	@GetMapping("/medicineStock/byPharmaId/{pharmaId}")
+	public ResponseEntity<List<MedicineStock>> getMedicineStockByPharma(@PathVariable Integer pharmaId)
+			throws ProfileNotFoundException {
+		List<MedicineStock> medicineStock = medicineStockService.getMedicineStockByPharmaId(pharmaId);
+
+		return new ResponseEntity<>(medicineStock, HttpStatus.OK);
 	}
 }
