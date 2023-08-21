@@ -14,7 +14,7 @@ public class RouteConfig {
 
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-		logger.info("...21...");
+		logger.info("...211...");
 
 		return builder.routes()
 				.route("PatientUser",
@@ -56,17 +56,8 @@ public class RouteConfig {
 				.route("OneHealth-/api/labs", r -> r.path("/api/labs/**").uri(
 						"https://labs-management-service-techbrutal11-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 
-				.route("OneHealth-/api/doctors/registration",
-						r -> r.path("/api/doctors/registration/**").uri(
-								"https://doctorregistration-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
-
-				.route("OneHealth-/api/doctors/profile",
-						r -> r.path("/api/doctors/profile/**")
-								.uri("https://doctorprofile-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
-
-				.route("OneHealth-/api/doctors/address",
-						r -> r.path("/api/doctors/address/**")
-								.uri("https://doctoraddress-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				.route("OneHealth-/api/doctors/registration", r -> r.path("/api/doctors/addressprofileregistration/**")
+						.uri("https://doctorregistrationprofile-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 
 				.route("OneHealth-/api/doctors/appointment",
 						r -> r.path("/api/doctors/appointment/**").uri(
