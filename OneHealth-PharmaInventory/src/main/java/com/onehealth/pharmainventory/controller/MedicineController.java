@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,12 +17,12 @@ public class MedicineController {
 
 	@Autowired
 	private MedicineService medicineService;
-	
+
 	@GetMapping("/")
 	public String hello() {
 		return "Hello From InventoryManagement";
 	}
-	
+
 	@GetMapping("/medicines")
 	public ResponseEntity<List<Medicine>> getAllMedicines() {
 		List<Medicine> medicines = medicineService.getAllMedicines();
@@ -34,10 +35,27 @@ public class MedicineController {
 		return new ResponseEntity<>(medicine, HttpStatus.OK);
 	}
 
+//	@PostMapping("/medicines")
+//	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine) {
+//		medicineService.createMedicine(medicine);
+//		return new ResponseEntity<>("Medicine Created Successfully", HttpStatus.CREATED);
+//	}
+
 	@PostMapping("/medicines")
-	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine) {
-		medicineService.createMedicine(medicine);
-		return new ResponseEntity<>("Medicine Created Successfully", HttpStatus.CREATED);
+	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine,
+			@RequestParam("files") List<MultipartFile> files) {
+
+		try {
+			// Set the medicineImages field in the Medicine entity
+			medicine.setMedicineImages(files);
+
+			// Call your service method to create the Medicine entity
+			medicineService.createMedicine(medicine);
+
+			return ResponseEntity.ok("Medicine Created Successfully");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create Medicine");
+		}
 	}
 
 	@PutMapping("/medicines/{medicineId}")
