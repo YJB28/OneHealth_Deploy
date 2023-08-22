@@ -10,6 +10,7 @@ E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\oneh
 E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\service\MedicineDetailsService.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\entity\MedicineStock.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\service\MedicineCategoryService.java
+E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\exception\dto\MedicineDetailsDTO.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\serviceimpl\MedicineStockImpl.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\repository\MedicineDetailsRepository.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PharmaInventory\src\main\java\com\onehealth\pharmainventory\service\MedicineService.java

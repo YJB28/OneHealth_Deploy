@@ -1,50 +1,53 @@
 package com.onehealth.pharmainventory.entity;
 
 
+
 import jakarta.persistence.*;
 
 @Entity
 @Table
 public class MedicineDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer medicineDetailsId;
-    
-    @Column
-    private Integer medicineId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer medicineDetailsId;
 
-    @Column
-    private String highlights;
+	@OneToOne
+	@JoinColumn(name = "medicine_id", nullable = false)
+//	@JsonIgnore // Add this line
+	private Medicine medicine;
 
-    @Column
-    private String description;
+	@Column
+	private String highlights;
 
-    @Column
-    private String indications;
+	@Column
+	private String description;
 
-    @Column
-    private String keyComponents;
+	@Column
+	private String indications;
 
-    @Column
-    private String directionForUse;
+	@Column
+	private String keyComponents;
 
-    @Column
-    private String storage;
+	@Column
+	private String directionForUse;
 
-    @Column
-    private String precautions;
+	@Column
+	private String storage;
+
+	@Column
+	private String precautions;
 
 	public MedicineDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MedicineDetails(Integer medicineDetailsId, Integer medicineId, String highlights, String description,
+	public MedicineDetails(Integer medicineDetailsId, Medicine medicine, String highlights, String description,
 			String indications, String keyComponents, String directionForUse, String storage, String precautions) {
 		super();
 		this.medicineDetailsId = medicineDetailsId;
-		this.medicineId = medicineId;
+		this.medicine = medicine;
 		this.highlights = highlights;
 		this.description = description;
 		this.indications = indications;
@@ -56,10 +59,10 @@ public class MedicineDetails {
 
 	@Override
 	public String toString() {
-		return "MedicineDetails [medicineDetailsId=" + medicineDetailsId + ", medicineId=" + medicineId
-				+ ", highlights=" + highlights + ", description=" + description + ", indications=" + indications
-				+ ", keyComponents=" + keyComponents + ", directionForUse=" + directionForUse + ", storage=" + storage
-				+ ", precautions=" + precautions + "]";
+		return "MedicineDetails [medicineDetailsId=" + medicineDetailsId + ", medicine=" + medicine + ", highlights="
+				+ highlights + ", description=" + description + ", indications=" + indications + ", keyComponents="
+				+ keyComponents + ", directionForUse=" + directionForUse + ", storage=" + storage + ", precautions="
+				+ precautions + "]";
 	}
 
 	public Integer getMedicineDetailsId() {
@@ -70,12 +73,12 @@ public class MedicineDetails {
 		this.medicineDetailsId = medicineDetailsId;
 	}
 
-	public Integer getMedicineId() {
-		return medicineId;
+	public Medicine getMedicine() {
+		return medicine;
 	}
 
-	public void setMedicineId(Integer medicineId) {
-		this.medicineId = medicineId;
+	public void setMedicine(Medicine medicine) {
+		this.medicine = medicine;
 	}
 
 	public String getHighlights() {
@@ -133,6 +136,5 @@ public class MedicineDetails {
 	public void setPrecautions(String precautions) {
 		this.precautions = precautions;
 	}
-    
-    
+
 }

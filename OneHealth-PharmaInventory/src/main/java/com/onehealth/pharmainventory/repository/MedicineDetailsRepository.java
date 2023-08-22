@@ -10,5 +10,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MedicineDetailsRepository extends JpaRepository<MedicineDetails, Integer> {
 
-	List<MedicineDetails> findAllDetailsByMedicineId(Integer medicineId);
+//	List<MedicineDetails> findAllDetailsByMedicineId(Integer medicineId);
+	List<MedicineDetails> findAllDetailsByMedicineMedicineId(Integer medicineId);
+
+	List<MedicineDetails> findAllByMedicine_MedicineId(Integer medicineId);
+
 }

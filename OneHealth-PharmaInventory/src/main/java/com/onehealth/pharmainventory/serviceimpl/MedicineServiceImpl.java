@@ -21,14 +21,14 @@ public class MedicineServiceImpl implements MedicineService {
 		return medicineRepository.findAll();
 	}
 
-	@Override
-	public Medicine getMedicineById(Integer medicineId) throws ProfileNotFoundException {
-		Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
-		if (optionalMedicine.isEmpty()) {
-			throw new ProfileNotFoundException("Medicine not found with ID: " + medicineId);
-		}
-		return optionalMedicine.get();
-	}
+//	@Override
+//	public Medicine getMedicineById(Integer medicineId) throws ProfileNotFoundException {
+//		Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
+//		if (optionalMedicine.isEmpty()) {
+//			throw new ProfileNotFoundException("Medicine not found with ID: " + medicineId);
+//		}
+//		return optionalMedicine.get();
+//	}
 
 	@Override
 	public void createMedicine(Medicine medicine) {
@@ -59,6 +59,15 @@ public class MedicineServiceImpl implements MedicineService {
 
 	@Override
 	public List<Medicine> getMedicinesByCategoryId(Integer categoryId) {
-		return medicineRepository.findByCategoryId(categoryId);
+		return medicineRepository.findByCategory_CategoryId(categoryId);
+	}
+
+	@Override
+	public Medicine getMedicineById(Integer medicineId) throws ProfileNotFoundException {
+		Optional<Medicine> optionalMedicine = medicineRepository.findById(medicineId);
+		if (optionalMedicine.isEmpty()) {
+			throw new ProfileNotFoundException("Medicine not found with ID: " + medicineId);
+		}
+		return optionalMedicine.get();
 	}
 }

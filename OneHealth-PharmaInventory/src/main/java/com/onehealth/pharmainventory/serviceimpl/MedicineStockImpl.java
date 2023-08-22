@@ -56,12 +56,12 @@ public class MedicineStockImpl implements MedicineStockService {
 
 	@Override
 	public List<MedicineStock> getMedicineStockByMedicineAndPharmaId(Integer medicineId, Integer pharmaId) {
-		return medicineStockRepository.findByMedicineIdAndPharmaId(medicineId, pharmaId);
+		return medicineStockRepository.findByMedicine_MedicineIdAndPharmaId(medicineId, pharmaId);
 	}
 
 	@Override
 	public List<MedicineStock> getMedicineStockByMedicineId(Integer medicineId) {
-		return medicineStockRepository.findByMedicineId(medicineId);
+		return medicineStockRepository.findByMedicine_MedicineId(medicineId);
 	}
 
 	@Override

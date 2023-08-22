@@ -1,38 +1,38 @@
 package com.onehealth.pharmainventory.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Medicine {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer medicineId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer medicineId;
 
-    @Column
-    private Integer categoryId;
+	@ManyToOne
+	@JoinColumn(name = "category_id", nullable = false)
+	private MedicineCategory category;
 
-    @Column
-    private String medicineName;
+	@Column
+	private String medicineName;
 
-    @Column
-    private String medicineImages;
+	@Column
+	private String medicineImages;
 
-    @Column
-    private Boolean medicineAvailability;
+	@Column
+	private Boolean medicineAvailability;
 
 	public Medicine() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Medicine(Integer medicineId, Integer categoryId, String medicineName, String medicineImages,
+	public Medicine(Integer medicineId, MedicineCategory category, String medicineName, String medicineImages,
 			Boolean medicineAvailability) {
 		super();
 		this.medicineId = medicineId;
-		this.categoryId = categoryId;
+		this.category = category;
 		this.medicineName = medicineName;
 		this.medicineImages = medicineImages;
 		this.medicineAvailability = medicineAvailability;
@@ -40,7 +40,7 @@ public class Medicine {
 
 	@Override
 	public String toString() {
-		return "Medicine [medicineId=" + medicineId + ", categoryId=" + categoryId + ", medicineName=" + medicineName
+		return "Medicine [medicineId=" + medicineId + ", category=" + category + ", medicineName=" + medicineName
 				+ ", medicineImages=" + medicineImages + ", medicineAvailability=" + medicineAvailability + "]";
 	}
 
@@ -52,12 +52,12 @@ public class Medicine {
 		this.medicineId = medicineId;
 	}
 
-	public Integer getCategoryId() {
-		return categoryId;
+	public MedicineCategory getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(MedicineCategory category) {
+		this.category = category;
 	}
 
 	public String getMedicineName() {
@@ -83,7 +83,7 @@ public class Medicine {
 	public void setMedicineAvailability(Boolean medicineAvailability) {
 		this.medicineAvailability = medicineAvailability;
 	}
-    
-    
-    
+
+	
+
 }

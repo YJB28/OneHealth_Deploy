@@ -12,8 +12,10 @@ public class MedicineStock {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer medicineStockId;
 
-	@Column
-	private Integer medicineId;
+	@OneToOne
+	@JoinColumn(name = "medicine_id", nullable = false)
+//	@JsonIgnore // Add this line
+	private Medicine medicine;
 
 	@Column
 	private Integer pharmaId;
@@ -41,11 +43,11 @@ public class MedicineStock {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MedicineStock(Integer medicineStockId, Integer medicineId, Integer pharmaId, Integer medicineUnits,
+	public MedicineStock(Integer medicineStockId, Medicine medicine, Integer pharmaId, Integer medicineUnits,
 			Date expDate, Date mfgDate, String batchNo, BigDecimal price, String packSize) {
 		super();
 		this.medicineStockId = medicineStockId;
-		this.medicineId = medicineId;
+		this.medicine = medicine;
 		this.pharmaId = pharmaId;
 		this.medicineUnits = medicineUnits;
 		this.expDate = expDate;
@@ -57,9 +59,9 @@ public class MedicineStock {
 
 	@Override
 	public String toString() {
-		return "MedicineStock [medicineStockId=" + medicineStockId + ", medicineId=" + medicineId + ", pharmaId="
-				+ pharmaId + ", medicineUnits=" + medicineUnits + ", expDate=" + expDate + ", mfgDate=" + mfgDate
-				+ ", batchNo=" + batchNo + ", price=" + price + ", packSize=" + packSize + "]";
+		return "MedicineStock [medicineStockId=" + medicineStockId + ", medicine=" + medicine + ", pharmaId=" + pharmaId
+				+ ", medicineUnits=" + medicineUnits + ", expDate=" + expDate + ", mfgDate=" + mfgDate + ", batchNo="
+				+ batchNo + ", price=" + price + ", packSize=" + packSize + "]";
 	}
 
 	public Integer getMedicineStockId() {
@@ -70,12 +72,12 @@ public class MedicineStock {
 		this.medicineStockId = medicineStockId;
 	}
 
-	public Integer getMedicineId() {
-		return medicineId;
+	public Medicine getMedicine() {
+		return medicine;
 	}
 
-	public void setMedicineId(Integer medicineId) {
-		this.medicineId = medicineId;
+	public void setMedicine(Medicine medicine) {
+		this.medicine = medicine;
 	}
 
 	public Integer getPharmaId() {
@@ -133,5 +135,7 @@ public class MedicineStock {
 	public void setPackSize(String packSize) {
 		this.packSize = packSize;
 	}
+
+	
 
 }

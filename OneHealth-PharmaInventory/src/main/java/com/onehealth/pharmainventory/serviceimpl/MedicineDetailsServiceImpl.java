@@ -50,7 +50,8 @@ public class MedicineDetailsServiceImpl implements MedicineDetailsService {
 	@Override
 	public List<MedicineDetails> getAllMedicineDetailsByMedicineId(Integer medicineId) {
 		// TODO Auto-generated method stub
-		return medicineDetailsRepository.findAllDetailsByMedicineId(medicineId);
+//		return medicineDetailsRepository.findAllDetailsByMedicineMedicineId(medicineId);
+		return medicineDetailsRepository.findAllByMedicine_MedicineId(medicineId);
 	}
 
 	@Override

@@ -10,6 +10,7 @@ com\onehealth\pharmainventory\service\MedicineCategoryService.class
 com\onehealth\pharmainventory\repository\MedicineRepository.class
 com\onehealth\pharmainventory\serviceimpl\MedicineServiceImpl.class
 com\onehealth\pharmainventory\controller\MedicineDetailsController.class
+com\onehealth\pharmainventory\exception\dto\MedicineDetailsDTO.class
 com\onehealth\pharmainventory\exception\ProfileNotFoundException.class
 com\onehealth\pharmainventory\serviceimpl\MedicineStockImpl.class
 com\onehealth\pharmainventory\entity\MedicineStock.class
