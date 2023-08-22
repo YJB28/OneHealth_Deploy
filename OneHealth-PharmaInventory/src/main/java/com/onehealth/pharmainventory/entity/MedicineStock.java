@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table
 public class MedicineStock {
@@ -14,7 +16,7 @@ public class MedicineStock {
 
 	@OneToOne
 	@JoinColumn(name = "medicine_id", nullable = false)
-//	@JsonIgnore // Add this line
+	@JsonIgnore // Add this line
 	private Medicine medicine;
 
 	@Column

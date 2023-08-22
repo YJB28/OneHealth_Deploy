@@ -1,8 +1,7 @@
 package com.onehealth.pharmainventory.entity;
 
-import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -16,16 +15,17 @@ public class Medicine {
 
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
+	@JsonIgnore
 	private MedicineCategory category;
 
 	@Column
 	private String medicineName;
 
-//	@Column
-//	private String medicineImages;
-	
-	@Transient
-    private List<MultipartFile> medicineImages; 
+	@Column
+	private String medicineImages;
+
+//	@Transient
+//    private List<MultipartFile> medicineImages; 
 
 	@Column
 	private Boolean medicineAvailability;
@@ -35,8 +35,8 @@ public class Medicine {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Medicine(Integer medicineId, MedicineCategory category, String medicineName,
-			List<MultipartFile> medicineImages, Boolean medicineAvailability) {
+	public Medicine(Integer medicineId, MedicineCategory category, String medicineName, String medicineImages,
+			Boolean medicineAvailability) {
 		super();
 		this.medicineId = medicineId;
 		this.category = category;
@@ -75,11 +75,11 @@ public class Medicine {
 		this.medicineName = medicineName;
 	}
 
-	public List<MultipartFile> getMedicineImages() {
+	public String getMedicineImages() {
 		return medicineImages;
 	}
 
-	public void setMedicineImages(List<MultipartFile> medicineImages) {
+	public void setMedicineImages(String medicineImages) {
 		this.medicineImages = medicineImages;
 	}
 
@@ -90,7 +90,5 @@ public class Medicine {
 	public void setMedicineAvailability(Boolean medicineAvailability) {
 		this.medicineAvailability = medicineAvailability;
 	}
-
-	
 
 }

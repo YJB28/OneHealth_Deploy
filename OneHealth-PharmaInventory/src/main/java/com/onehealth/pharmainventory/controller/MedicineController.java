@@ -35,28 +35,28 @@ public class MedicineController {
 		return new ResponseEntity<>(medicine, HttpStatus.OK);
 	}
 
-//	@PostMapping("/medicines")
-//	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine) {
-//		medicineService.createMedicine(medicine);
-//		return new ResponseEntity<>("Medicine Created Successfully", HttpStatus.CREATED);
-//	}
-
 	@PostMapping("/medicines")
-	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine,
-			@RequestParam("files") List<MultipartFile> files) {
-
-		try {
-			// Set the medicineImages field in the Medicine entity
-			medicine.setMedicineImages(files);
-
-			// Call your service method to create the Medicine entity
-			medicineService.createMedicine(medicine);
-
-			return ResponseEntity.ok("Medicine Created Successfully");
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create Medicine");
-		}
+	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine) {
+		medicineService.createMedicine(medicine);
+		return new ResponseEntity<>("Medicine Created Successfully", HttpStatus.CREATED);
 	}
+
+//	@PostMapping("/medicines")
+//	public ResponseEntity<String> createMedicine(@RequestBody Medicine medicine,
+//			@RequestParam("files") List<MultipartFile> files) {
+//
+//		try {
+//			// Set the medicineImages field in the Medicine entity
+//			medicine.setMedicineImages(files);
+//
+//			// Call your service method to create the Medicine entity
+//			medicineService.createMedicine(medicine);
+//
+//			return ResponseEntity.ok("Medicine Created Successfully");
+//		} catch (Exception e) {
+//			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create Medicine");
+//		}
+//	}
 
 	@PutMapping("/medicines/{medicineId}")
 	public ResponseEntity<String> updateMedicine(@PathVariable Integer medicineId, @RequestBody Medicine medicine)
