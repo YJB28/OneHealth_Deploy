@@ -16,7 +16,7 @@ public class MedicineDetails {
 
 	@OneToOne
 	@JoinColumn(name = "medicine_id", nullable = false)
-	@JsonIgnore // Add this line
+//	@JsonIgnore // Add this line
 	private Medicine medicine;
 
 	@Column

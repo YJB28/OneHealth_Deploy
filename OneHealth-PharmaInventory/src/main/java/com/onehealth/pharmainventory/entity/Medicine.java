@@ -15,7 +15,7 @@ public class Medicine {
 
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
-	@JsonIgnore
+//	@JsonIgnore
 	private MedicineCategory category;
 
 	@Column
