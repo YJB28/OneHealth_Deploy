@@ -14,5 +14,5 @@ public interface MedicineService {
     void deleteMedicine(Integer medicineId) throws ProfileNotFoundException;
 	List<Medicine> getMedicinesByMedicineName(String medicineName);
 	List<Medicine> getMedicinesByCategoryId(Integer categoryId);
-	Medicine getMedicineById(Integer medicineId) throws ProfileNotFoundException;;
+	Medicine getMedicineById(Integer medicineId) throws ProfileNotFoundException;
 }

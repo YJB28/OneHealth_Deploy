@@ -1,8 +1,7 @@
 package com.onehealth.pharmainventory.entity;
 
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 
@@ -14,10 +13,10 @@ public class MedicineDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer medicineDetailsId;
 
-	@OneToOne
-	@JoinColumn(name = "medicine_id", nullable = false)
-//	@JsonIgnore // Add this line
-	private Medicine medicine;
+	@OneToOne(fetch = FetchType.EAGER)
+	    @JoinColumn(name = "medicine_id", referencedColumnName = "medicineId")
+	    @JsonIgnoreProperties("medicineDetails") // Add this line to break the loop
+	    private Medicine medicine;
 
 	@Column
 	private String highlights;

@@ -1,6 +1,5 @@
 package com.onehealth.pharmainventory.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
@@ -30,25 +29,30 @@ public class Medicine {
 	@Column
 	private Boolean medicineAvailability;
 
+	@OneToOne(mappedBy = "medicine", fetch = FetchType.EAGER)
+	private MedicineDetails medicineDetails;
+
 	public Medicine() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Medicine(Integer medicineId, MedicineCategory category, String medicineName, String medicineImages,
-			Boolean medicineAvailability) {
+			Boolean medicineAvailability, MedicineDetails medicineDetails) {
 		super();
 		this.medicineId = medicineId;
 		this.category = category;
 		this.medicineName = medicineName;
 		this.medicineImages = medicineImages;
 		this.medicineAvailability = medicineAvailability;
+		this.medicineDetails = medicineDetails;
 	}
 
 	@Override
 	public String toString() {
 		return "Medicine [medicineId=" + medicineId + ", category=" + category + ", medicineName=" + medicineName
-				+ ", medicineImages=" + medicineImages + ", medicineAvailability=" + medicineAvailability + "]";
+				+ ", medicineImages=" + medicineImages + ", medicineAvailability=" + medicineAvailability
+				+ ", medicineDetails=" + medicineDetails + "]";
 	}
 
 	public Integer getMedicineId() {
@@ -89,6 +93,14 @@ public class Medicine {
 
 	public void setMedicineAvailability(Boolean medicineAvailability) {
 		this.medicineAvailability = medicineAvailability;
+	}
+
+	public MedicineDetails getMedicineDetails() {
+		return medicineDetails;
+	}
+
+	public void setMedicineDetails(MedicineDetails medicineDetails) {
+		this.medicineDetails = medicineDetails;
 	}
 
 }
