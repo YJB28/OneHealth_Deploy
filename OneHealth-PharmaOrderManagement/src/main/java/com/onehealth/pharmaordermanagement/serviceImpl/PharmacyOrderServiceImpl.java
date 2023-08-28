@@ -34,8 +34,7 @@ public class PharmacyOrderServiceImpl implements PharmacyOrderService {
 
 	@Override
 	public void savePharmacyOrderDetails(List<PharmacyOrderDetails> orderDetailsList) {
-		// TODO Auto-generated method stub
-
+		pharmacyOrderDetailsRepository.saveAll(orderDetailsList);
 	}
 
 	@Override
@@ -99,9 +98,13 @@ public class PharmacyOrderServiceImpl implements PharmacyOrderService {
 	}
 
 	@Override
-	public Optional<List<PharmacyOrderDetails>> getOrdersByPharmaId(Long pharmaId) {
-		// TODO Auto-generated method stub
+	public Optional<List<PharmacyOrderDetails>> getDetailsByPharmaId(Long pharmaId) {
 		return pharmacyOrderDetailsRepository.findByPharmaId(pharmaId);
+	}
+
+	@Override
+	public Optional<List<PharmacyOrderDetails>> getOrderDetailsByOrderId(Long orderId) {
+		return pharmacyOrderDetailsRepository.findByPharmacyOrder_OrderId(orderId);
 	}
 
 }

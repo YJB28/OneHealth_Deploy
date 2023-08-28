@@ -166,13 +166,12 @@ public class PharmacyOrderController {
 	}
 
 	@GetMapping("/byPharmaId/{pharmaId}")
-	public ResponseEntity<?> getOrdersByPharmaId(@PathVariable Long pharmaId) {
-		Optional<List<PharmacyOrderDetails>> order = pharmacyOrderService.getOrdersByPharmaId(pharmaId);
-		System.out.println("order...."+ order);
-		if (order.isPresent()) {
-			return new ResponseEntity<>(order.get(), HttpStatus.OK);
+	public ResponseEntity<?> getDetailsByPharmaId(@PathVariable Long pharmaId) {
+		Optional<List<PharmacyOrderDetails>> details = pharmacyOrderService.getDetailsByPharmaId(pharmaId);
+		if (details.isPresent()) {
+			return new ResponseEntity<>(details.get(), HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Pharmacy Order not found", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Pharmacy Order Details not found", HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/byDeliveryTrack/{deliveryTrack}")
@@ -210,4 +209,14 @@ public class PharmacyOrderController {
 		}
 		return new ResponseEntity<>("Pharmacy Order not found", HttpStatus.NOT_FOUND);
 	}
+
+	@GetMapping("/orderDetails/byOrderId/{orderId}")
+	public ResponseEntity<?> getDetailsByOrderId(@PathVariable Long orderId) {
+		Optional<List<PharmacyOrderDetails>> details = pharmacyOrderService.getOrderDetailsByOrderId(orderId);
+		if (details.isPresent()) {
+			return new ResponseEntity<>(details.get(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Pharmacy Order Details not found", HttpStatus.NOT_FOUND);
+	}
+
 }

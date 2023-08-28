@@ -32,6 +32,10 @@ public interface PharmacyOrderService {
 
 	Optional<List<PharmacyOrder>> getOrdersByPaymentStatus(String paymentStatus);
 
-	Optional<List<PharmacyOrderDetails>> getOrdersByPharmaId(Long pharmaId);
+	Optional<List<PharmacyOrderDetails>> getDetailsByPharmaId(Long pharmaId);
+	
+	Optional<List<PharmacyOrderDetails>> getOrderDetailsByOrderId(Long orderId);
+
+
 
 }
