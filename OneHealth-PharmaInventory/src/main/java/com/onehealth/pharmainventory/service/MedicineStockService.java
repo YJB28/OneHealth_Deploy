@@ -20,7 +20,7 @@ public interface MedicineStockService {
 
 	List<MedicineStock> getMedicineStockByMedicineAndPharmaId(Integer medicineId, Integer pharmaId);
 
-	List<MedicineStock> getMedicineStockByMedicineId(Integer medicineId);
+	Optional<MedicineStock> getMedicineStockByMedicineId(Integer medicineId);
 
 	List<MedicineStock> getMedicineStockByPharmaId(Integer pharmaId);
 }

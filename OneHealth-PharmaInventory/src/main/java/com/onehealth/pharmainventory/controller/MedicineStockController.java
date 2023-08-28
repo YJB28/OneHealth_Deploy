@@ -62,9 +62,9 @@ public class MedicineStockController {
 	}
 
 	@GetMapping("/medicineStock/byMedicineID/{medicineId}")
-	public ResponseEntity<List<MedicineStock>> getMedicineStockByMedicine(@PathVariable Integer medicineId)
+	public ResponseEntity<Optional<MedicineStock>> getMedicineStockByMedicine(@PathVariable Integer medicineId)
 			throws ProfileNotFoundException {
-		List<MedicineStock> medicineStock = medicineStockService.getMedicineStockByMedicineId(medicineId);
+		Optional<MedicineStock> medicineStock = medicineStockService.getMedicineStockByMedicineId(medicineId);
 		return new ResponseEntity<>(medicineStock, HttpStatus.OK);
 	}
 

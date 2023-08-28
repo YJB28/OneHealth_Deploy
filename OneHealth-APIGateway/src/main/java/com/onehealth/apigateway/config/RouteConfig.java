@@ -32,13 +32,11 @@ public class RouteConfig {
 						r -> r.path("/InventoryManagement/**").uri(
 								"https://inventorymanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
-				.route("OneHealth-feesservice",
-						r -> r.path("/api/doctors/doctorfees/**")
-								.uri("https://feesservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				.route("OneHealth-feesservice", r -> r.path("/api/doctors/doctorfees/**")
+						.uri("https://doctor-fees-service-git-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 
-				.route("OneHealth-DoctorSchedule",
-						r -> r.path("/api/doctors/schedule/**").uri(
-								"https://doctorscheduleservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+				.route("OneHealth-DoctorSchedule", r -> r.path("/api/doctors/schedule/**").uri(
+						"https://doctorscheduleservice-git-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 
 				.route("OneHealth-bankdetails",
 						r -> r.path("/api/doctors/doctorbankdetails/**")
@@ -69,6 +67,13 @@ public class RouteConfig {
 				.route("OneHealth-PharmaOrderManagement",
 						r -> r.path("/pharmacy-orders/**").uri(
 								"https://onehealthpharmacyorders-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("OneHealth-EmailService",
+						r -> r.path("/emailService/**")
+								.uri("https://emailservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
+
+				.route("OneHealth-PharmacyOrder",
+						r -> r.path("/pharmacy-orders/**")
+								.uri("https://pharmacyorder-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
 				// Add more routes for other microservices as needed
 				.build();

@@ -11,7 +11,7 @@ public interface MedicineStockRepository extends JpaRepository<MedicineStock, In
 
 	List<MedicineStock> findByMedicine_MedicineIdAndPharmaId(Integer medicineId, Integer pharmaId);
 
-	List<MedicineStock> findByMedicine_MedicineId(Integer medicineId);
+	Optional<MedicineStock> findByMedicine_MedicineId(Integer medicineId);
 
 	List<MedicineStock> findByPharmaId(Integer pharmaId);
 

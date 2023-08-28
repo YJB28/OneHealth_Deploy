@@ -60,7 +60,7 @@ public class MedicineStockImpl implements MedicineStockService {
 	}
 
 	@Override
-	public List<MedicineStock> getMedicineStockByMedicineId(Integer medicineId) {
+	public Optional<MedicineStock> getMedicineStockByMedicineId(Integer medicineId) {
 		return medicineStockRepository.findByMedicine_MedicineId(medicineId);
 	}
 
