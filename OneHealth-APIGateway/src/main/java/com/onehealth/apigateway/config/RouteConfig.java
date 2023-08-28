@@ -64,14 +64,12 @@ public class RouteConfig {
 						"https://pharmacy-management-service-git-yashwant01081998-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 				.route("OneHealth-PharmaCartManagement", r -> r.path("/api/medCarts/**").uri(
 						"https://pharmacy-cart-management-git-yashwant01081998-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
-				.route("OneHealth-PharmaOrderManagement",
-						r -> r.path("/pharmacy-orders/**").uri(
-								"https://onehealthpharmacyorders-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+
 				.route("OneHealth-EmailService",
 						r -> r.path("/emailService/**")
 								.uri("https://emailservice-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
 
-				.route("OneHealth-PharmacyOrder",
+				.route("OneHealth-PharmacyOrderPharmaOrderManagement",
 						r -> r.path("/pharmacy-orders/**")
 								.uri("https://pharmacyorder-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
