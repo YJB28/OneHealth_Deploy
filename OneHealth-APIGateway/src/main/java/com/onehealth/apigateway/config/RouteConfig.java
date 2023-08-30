@@ -72,6 +72,10 @@ public class RouteConfig {
 				.route("OneHealth-PharmacyOrderPharmaOrderManagement",
 						r -> r.path("/pharmacy-orders/**")
 								.uri("https://pharmacyorder-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				
+				.route("OneHealth-Blogservices",
+						r -> r.path("/blog/**")
+								.uri("https://blogservice-hitendra7-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
 				// Add more routes for other microservices as needed
 				.build();
