@@ -7,6 +7,7 @@ import jakarta.persistence.*;
  * The `MedicalHistory` class represents the medical history records of a patient.
  */
 //@Table(name = "pastmedicalrecords")
+//@SequenceGenerator(name = "mh",sequenceName = "mhh",initialValue = 5000)
 public class MedicalHistory {
 
     @Id

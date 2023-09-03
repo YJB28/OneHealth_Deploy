@@ -6,41 +6,46 @@ import jakarta.persistence.*;
 //@Table(name = "user_registration")
 public class PatientUser {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private Long userId;
 
-    @Column(name = "first_name", length = 50)
-    private String firstName;
+	@Column(name = "mobile_number", length = 50)
+	private String mobileNumber;
 
-    @Column(name = "last_name", length = 50)
-    private String lastName;
+	@Column(name = "emailid", length = 100, nullable = false)
+	private String emailId;
 
-    @Column(name = "password", length = 30)
-    private String password;
+	@Column(name = "first_name", length = 50)
+	private String firstName;
 
-    @Column(name = "emailid", length = 100, nullable = false)
-    private String emailId;
+	@Column(name = "last_name", length = 50)
+	private String lastName;
+
+	@Column(name = "password", length = 30)
+	private String password;
 
 	public PatientUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PatientUser(Long userId, String firstName, String lastName, String password, String emailId) {
+	public PatientUser(Long userId, String mobileNumber, String emailId, String firstName, String lastName,
+			String password) {
 		super();
 		this.userId = userId;
+		this.mobileNumber = mobileNumber;
+		this.emailId = emailId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.emailId = emailId;
 	}
 
 	@Override
 	public String toString() {
-		return "PatientUser [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
-				+ password + ", emailId=" + emailId + "]";
+		return "PatientUser [userId=" + userId + ", mobileNumber=" + mobileNumber + ", emailId=" + emailId
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password + "]";
 	}
 
 	public Long getUserId() {
@@ -49,6 +54,22 @@ public class PatientUser {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getFirstName() {
@@ -75,18 +96,4 @@ public class PatientUser {
 		this.password = password;
 	}
 
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	
-
-    // Constructors, getters, setters, and other methods as needed.
-    
-    
 }
-

@@ -1,7 +1,6 @@
 com\onehealth\patientmanagement\exception\DTO\ErrorMessageDTO.class
 com\onehealth\patientmanagement\service\PatientProfileService.class
 com\onehealth\patientmanagement\serviceImpl\PatientProfileServiceImpl.class
-com\onehealth\patientmanagement\exception\GlobalExceptionHandler.class
 com\onehealth\patientmanagement\exception\DatabaseException.class
 com\onehealth\patientmanagement\exception\ProfileNotFoundException.class
 com\onehealth\patientmanagement\entity\PatientProfile.class

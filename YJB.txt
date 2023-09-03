@@ -97,14 +97,107 @@ POSTGRES_USER  userIHF postgres
 POSTGRES_PASSWORD  iVTyJAxJr6YYvxwN postgres
 POSTGRES_DB onehealthdb
 EUREKA_SERVER link/eureka
+apiGatewayUrl=${API_GATEWAY:https://apigateway-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com}
 
 
 
 
-. ____ _ __ _ _
-/\\ / ___'_ __ _ _(_)_ __ __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
-\\/ ___)| |_)| | | | | || (_| | ) ) ) )
-' |____| .__|_| |_|_| |_\__, | / / / /
-=========|_|==============|___/=/_/_/_/
-:: Spring Boot :: (v3.1.2)
+=====================================
+
+logging,testing
+
+<dependencies>
+    <!-- SLF4J -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <!-- Logback (or your preferred logging implementation) -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+       
+    </dependency>
+
+  <!-- Rest-Assured -->
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+       
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+
+==
+
+
+ 
+
+
+===
+
+import org.junit.jupiter.api.Test;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+public class MyServiceAPITest {
+    
+    @Test
+    public void testGetUserById() {
+        given()
+            .baseUri("http://localhost:8080/api")
+            .pathParam("userId", 1)
+        .when()
+            .get("/users/{userId}")
+        .then()
+            .statusCode(200)
+            .body("id", equalTo(1))
+            .body("name", equalTo("John Doe"));
+    }
+}
+
+
+=======================================RestTemplate====================
+@Bean
+public RestTemplate getRestTemplate() {
+return new RestTemplate();
+}
+
+
+==
+
+@Autowired
+RestTemplate restTemplate;
+===
+
+// Fetch cart details using RestTemplate
+String cartApiUrl = "https://apigateway-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/api/medCarts/cart/" + pharmacyOrder.getCartId();
+
+ResponseEntity<String> cartResponse = restTemplate.exchange(cartApiUrl, HttpMethod.GET, null, String.class);
+        String cartDTO = cartResponse.getBody();
+
+===
+
+// Use RestTemplate to fetch data from the first API and convert it to OrderDetailsDto
+        // Construct the URL and make the REST call
+        ResponseEntity<OrderDetailsDto> response = restTemplate.exchange(
+            "{{apigateway}}pharmacy-orders/orderDetails/byOrderId/" + orderId,
+            HttpMethod.GET,
+            null,
+            OrderDetailsDto.class
+        );
+        
+        return response.getBody();
+
+
+===
+
+HttpHeaders headers = new HttpHeaders();
+headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+HttpEntity<String> entity = new HttpEntity<String>(headers);
+return restTemplate.exchange("http://localhost:8080/products",
+HttpMethod.GET, entity, String.class).getBody();
+
+

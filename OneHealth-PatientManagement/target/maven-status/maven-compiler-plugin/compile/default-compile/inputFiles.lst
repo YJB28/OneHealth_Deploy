@@ -2,7 +2,6 @@ E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\on
 E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\controller\PatientProfileController.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\exception\RecordNotFoundException.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\OneHealthPatientManagementApplication.java
-E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\exception\GlobalExceptionHandler.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\serviceImpl\PatientProfileServiceImpl.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\exception\DatabaseException.java
 E:\Desktop Content\OneHealth_BE\OneHealth-PatientManagement\src\main\java\com\onehealth\patientmanagement\exception\DTO\ErrorMessageDTO.java

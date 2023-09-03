@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 RUN pwd
-COPY . .
+#COPY . .
 RUN ls 
 # RUN ls ServiceRegistry/target
 # Copy the Spring Boot application JAR into the container

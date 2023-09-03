@@ -30,8 +30,9 @@ public interface PatientProfileService {
      *
      * @param patient The PatientProfile object containing the details of the new patient.
      * @return The newly created PatientProfile.
+     * @throws ProfileNotFoundException 
      */
-    PatientProfile createPatientProfile(PatientProfile patient);
+    PatientProfile createPatientProfile(PatientProfile patient) throws ProfileNotFoundException;
 
     /**
      * Updates an existing PatientProfile based on the provided patientId.
@@ -50,4 +51,10 @@ public interface PatientProfileService {
      * @throws ProfileNotFoundException If the specified patient profile is not found.
      */
     void deletePatientProfile(long patientId) throws ProfileNotFoundException;
+
+	List<PatientProfile> getAllPatientsProfile();
+
+	void deleteAllPatientProfileByUserId(long userId) throws ProfileNotFoundException;
+
+	PatientProfile getPatientByUserIdAndNameIgnoreCase(long userId, String firstName, String lastName);
 }

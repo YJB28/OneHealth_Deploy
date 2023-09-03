@@ -2,6 +2,7 @@ package com.onehealth.patientmanagement.entity;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,15 +17,19 @@ public class PatientProfile {
 	private long patientId;
 
 	// User ID associated with the patient
+	@Column(name = "user_id", nullable = false)
 	private long userId;
 
 	// First name of the patient
+	@Column(name = "first_name")
 	private String firstName;
 
 	// Last name of the patient
+	@Column(name = "last_name")
 	private String lastName;
 
 	// Mobile number of the patient
+	@Column(name = "mobile_number")
 	private String mobileNumber;
 
 	// Address of the patient
@@ -61,6 +66,7 @@ public class PatientProfile {
 	private String maritalStatus;
 
 	// Email ID of the patient
+	@Column(name = "email_id")
 	private String emailId;
 
 	// Default constructor for the PatientProfile class
@@ -237,5 +243,4 @@ public class PatientProfile {
 		this.emailId = emailId;
 	}
 
-	
 }

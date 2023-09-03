@@ -1,5 +1,4 @@
 com\onehealth\lifestyleandhistory\service\MedicalHistoryService.class
-com\onehealth\lifestyleandhistory\exception\GlobalExceptionHandler.class
 com\onehealth\lifestyleandhistory\service\LifeStyleService.class
 com\onehealth\lifestyleandhistory\DTO\ErrorMessageDTO.class
 com\onehealth\lifestyleandhistory\exception\RecordNotFoundException.class

@@ -4,6 +4,9 @@ import com.onehealth.lifestyleandhistory.entity.LifeStyle;
 import com.onehealth.lifestyleandhistory.exception.RecordNotFoundException;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
 
 /**
  * The LifeStyleService interface defines operations for managing lifestyle-related data.
@@ -34,7 +37,7 @@ public interface LifeStyleService {
      * @param lifestyle The LifeStyle object to be created.
      * @return The created LifeStyle record.
      */
-    LifeStyle createLifestyle(LifeStyle lifestyle);
+    ResponseEntity<?> createLifestyle(LifeStyle lifestyle);
 
     /**
      * Updates an existing LifeStyle record.
@@ -53,4 +56,8 @@ public interface LifeStyleService {
      * @throws RecordNotFoundException If the record is not found.
      */
     void deleteLifestyleByPatientId(Long patientId) throws RecordNotFoundException;
+
+	List<LifeStyle> getAllLifestyleByUserId(Long userId);
+
+	boolean existsByPatientIdAndUserId(Long patientId, Long userId);
 }
