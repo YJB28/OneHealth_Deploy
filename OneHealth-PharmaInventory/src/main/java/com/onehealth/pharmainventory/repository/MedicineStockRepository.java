@@ -9,19 +9,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MedicineStockRepository extends JpaRepository<MedicineStock, Long> {
 
+	// Find medicine stock by both medicine ID and pharmacy ID
 	List<MedicineStock> findByMedicine_MedicineIdAndPharmaId(Long medicineId, Long pharmaId);
 
+	// Find medicine stock by medicine ID
 	Optional<MedicineStock> findByMedicine_MedicineId(Long medicineId);
 
+	// Find medicine stock by pharmacy ID
 	List<MedicineStock> findByPharmaId(Long pharmaId);
 
-//	boolean existsByMedicineId(Long medicineId);
-
+	// Check if medicine with the specified ID exists in any medicine stock
 	boolean existsByMedicine_MedicineId(Long medicineId);
-
-//	List<MedicineStock> findByMedicineIdAndPharmaId(Integer medicineId, Integer pharmaId);
-//
-//	List<MedicineStock> findByMedicineId(Integer medicineId);
-//
-//	List<MedicineStock> findByPharmaId(Integer pharmaId);
 }

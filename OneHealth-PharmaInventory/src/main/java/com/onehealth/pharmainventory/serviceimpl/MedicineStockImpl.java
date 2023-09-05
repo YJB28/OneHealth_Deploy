@@ -24,8 +24,8 @@ public class MedicineStockImpl implements MedicineStockService {
 
 	@Autowired
 	private MedicineStockRepository medicineStockRepository;
-	
-	private static final Logger logger = LoggerFactory.getLogger(MedicineServiceImpl.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(MedicineStockImpl.class);
 
 	@Autowired
 	private MedicineRepository medicineRepository;
@@ -89,8 +89,7 @@ public class MedicineStockImpl implements MedicineStockService {
 		inventory.setMfgDate(inventory.getMfgDate());
 		inventory.setPackSize(inventory.getPackSize());
 		inventory.setPrice(inventory.getPrice());
-		
-		
+
 		medicineStockRepository.save(inventory);
 	}
 
@@ -115,8 +114,6 @@ public class MedicineStockImpl implements MedicineStockService {
 
 	@Override
 	public MedicineStock getMedicineStockByMedicineId(Long medicineId) {
-//		return medicineStockRepository.findByMedicine_MedicineId(medicineId);
-		
 		Optional<MedicineStock> optionalInventory = medicineStockRepository.findByMedicine_MedicineId(medicineId);
 		if (optionalInventory.isEmpty()) {
 			throw new ProfileNotFoundException("Inventory not found with ID: " + medicineId);
