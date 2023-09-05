@@ -27,9 +27,8 @@ public class RouteConfig {
 						r -> r.path("/lifeStyleAndHistory/**").uri(
 								"https://lifestyleandhistory-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
-				.route("InventoryManagement",
-						r -> r.path("/InventoryManagement/**").uri(
-								"https://inventorymanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("InventoryManagement", r -> r.path("/InventoryManagement/**")
+						.uri("https://pharmainventorymanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
 				.route("OneHealth-feesservice", r -> r.path("/api/doctors/doctorfees/**")
 						.uri("https://doctor-fees-service-git-madhavi-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/"))
@@ -75,6 +74,9 @@ public class RouteConfig {
 				.route("OneHealth-Blogservices",
 						r -> r.path("/blog/**")
 								.uri("https://blogservice-hitendra7-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("OneHealth-HospitalService",
+						r -> r.path("/hservice/**").uri(
+								"https://hospitalservice-hitendra7-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
 				// Add more routes for other microservices as needed
 				.build();
