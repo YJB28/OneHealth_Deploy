@@ -11,7 +11,7 @@ public class MedicineDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer medicineDetailsId;
+	private Long medicineDetailsId;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	    @JoinColumn(name = "medicine_id", referencedColumnName = "medicineId")
@@ -44,7 +44,7 @@ public class MedicineDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MedicineDetails(Integer medicineDetailsId, Medicine medicine, String highlights, String description,
+	public MedicineDetails(Long medicineDetailsId, Medicine medicine, String highlights, String description,
 			String indications, String keyComponents, String directionForUse, String storage, String precautions) {
 		super();
 		this.medicineDetailsId = medicineDetailsId;
@@ -66,11 +66,11 @@ public class MedicineDetails {
 				+ precautions + "]";
 	}
 
-	public Integer getMedicineDetailsId() {
+	public Long getMedicineDetailsId() {
 		return medicineDetailsId;
 	}
 
-	public void setMedicineDetailsId(Integer medicineDetailsId) {
+	public void setMedicineDetailsId(Long medicineDetailsId) {
 		this.medicineDetailsId = medicineDetailsId;
 	}
 

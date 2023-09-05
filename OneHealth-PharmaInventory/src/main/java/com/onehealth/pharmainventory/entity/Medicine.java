@@ -10,7 +10,10 @@ public class Medicine {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer medicineId;
+	private Long medicineId;
+
+	@Column
+	private Long pharmaId;
 
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
@@ -29,7 +32,7 @@ public class Medicine {
 	@Column
 	private Boolean medicineAvailability;
 
-	@OneToOne(mappedBy = "medicine", fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "medicine", fetch = FetchType.EAGER,cascade =CascadeType.DETACH)
 	private MedicineDetails medicineDetails;
 
 	public Medicine() {
@@ -37,10 +40,11 @@ public class Medicine {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Medicine(Integer medicineId, MedicineCategory category, String medicineName, String medicineImages,
-			Boolean medicineAvailability, MedicineDetails medicineDetails) {
+	public Medicine(Long medicineId, Long pharmaId, MedicineCategory category, String medicineName,
+			String medicineImages, Boolean medicineAvailability, MedicineDetails medicineDetails) {
 		super();
 		this.medicineId = medicineId;
+		this.pharmaId = pharmaId;
 		this.category = category;
 		this.medicineName = medicineName;
 		this.medicineImages = medicineImages;
@@ -50,17 +54,25 @@ public class Medicine {
 
 	@Override
 	public String toString() {
-		return "Medicine [medicineId=" + medicineId + ", category=" + category + ", medicineName=" + medicineName
-				+ ", medicineImages=" + medicineImages + ", medicineAvailability=" + medicineAvailability
-				+ ", medicineDetails=" + medicineDetails + "]";
+		return "Medicine [medicineId=" + medicineId + ", pharmaId=" + pharmaId + ", category=" + category
+				+ ", medicineName=" + medicineName + ", medicineImages=" + medicineImages + ", medicineAvailability="
+				+ medicineAvailability + ", medicineDetails=" + medicineDetails + "]";
 	}
 
-	public Integer getMedicineId() {
+	public Long getMedicineId() {
 		return medicineId;
 	}
 
-	public void setMedicineId(Integer medicineId) {
+	public void setMedicineId(Long medicineId) {
 		this.medicineId = medicineId;
+	}
+
+	public Long getPharmaId() {
+		return pharmaId;
+	}
+
+	public void setPharmaId(Long pharmaId) {
+		this.pharmaId = pharmaId;
 	}
 
 	public MedicineCategory getCategory() {

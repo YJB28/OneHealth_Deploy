@@ -9,16 +9,17 @@ public class MedicineCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Integer categoryId;
+	private Long categoryId;
 
 	@Column
 	private String images;
 
+//	@Column(columnDefinition = "VARCHAR(255) COLLATE utf8_general_ci")
 	@Column
 	private String categoryName;
 
 	@Column
-	private Integer subCategoryId;
+	private Long subCategoryId;
 
 	@Column
 	private String healthCondition;
@@ -31,7 +32,7 @@ public class MedicineCategory {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MedicineCategory(Integer categoryId, String images, String categoryName, Integer subCategoryId,
+	public MedicineCategory(Long categoryId, String images, String categoryName, Long subCategoryId,
 			String healthCondition, Boolean flag) {
 		super();
 		this.categoryId = categoryId;
@@ -48,11 +49,11 @@ public class MedicineCategory {
 				+ ", subCategoryId=" + subCategoryId + ", healthCondition=" + healthCondition + ", flag=" + flag + "]";
 	}
 
-	public Integer getCategoryId() {
+	public Long getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(Integer categoryId) {
+	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -72,11 +73,11 @@ public class MedicineCategory {
 		this.categoryName = categoryName;
 	}
 
-	public Integer getSubCategoryId() {
+	public Long getSubCategoryId() {
 		return subCategoryId;
 	}
 
-	public void setSubCategoryId(Integer subCategoryId) {
+	public void setSubCategoryId(Long subCategoryId) {
 		this.subCategoryId = subCategoryId;
 	}
 
@@ -95,7 +96,5 @@ public class MedicineCategory {
 	public void setFlag(Boolean flag) {
 		this.flag = flag;
 	}
-	
-	
 
 }

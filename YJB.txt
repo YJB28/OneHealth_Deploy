@@ -169,7 +169,14 @@ return new RestTemplate();
 ==
 
 @Autowired
-RestTemplate restTemplate;
+private RestTemplate restTemplate;
+
+@Value("${apiGatewayUrl}")
+private String apiGatewayUrl;
+
+---
+spring.application.name=${APPLICATION_NAME:OneHealth-PharmaInventory}
+apiGatewayUrl=${API_GATEWAY:https://apigateway-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com}
 ===
 
 // Fetch cart details using RestTemplate
@@ -200,4 +207,15 @@ HttpEntity<String> entity = new HttpEntity<String>(headers);
 return restTemplate.exchange("http://localhost:8080/products",
 HttpMethod.GET, entity, String.class).getBody();
 
-
+======
+	/**
+	 * Exception handler for ProfileNotFoundException.
+	 *
+	 * @param ex The exception that was thrown.
+	 * @return Error message along with HTTP status 404 (Not Found).
+	 */
+	@ExceptionHandler(ProfileNotFoundException.class)
+	public ResponseEntity<String> handleProfileNotFoundException(ProfileNotFoundException ex) {
+		logger.error("ProfileNotFoundException: {}", ex.getMessage());
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+	}
