@@ -8,19 +8,23 @@ import com.onehealth.pharmainventory.exception.ProfileNotFoundException;
 
 public interface MedicineStockService {
 
-	MedicineStock getInventoryById(Integer medicineStockId) throws ProfileNotFoundException;
+	MedicineStock getInventoryById(Long medicineStockId) throws ProfileNotFoundException;
 
 	void createInventory(MedicineStock inventory);
 
-	void updateInventory(Integer medicineStockId, MedicineStock inventory) throws ProfileNotFoundException;
+	void updateInventory(Long medicineStockId, MedicineStock inventory) throws ProfileNotFoundException;
 
-	void deleteInventory(Integer medicineStockId) throws ProfileNotFoundException;
+	void deleteInventory(Long medicineStockId) throws ProfileNotFoundException;
 
 	List<MedicineStock> getAllInventories();
 
-	List<MedicineStock> getMedicineStockByMedicineAndPharmaId(Integer medicineId, Integer pharmaId);
+	List<MedicineStock> getMedicineStockByMedicineAndPharmaId(Long medicineId, Long pharmaId);
 
-	Optional<MedicineStock> getMedicineStockByMedicineId(Integer medicineId);
+	MedicineStock getMedicineStockByMedicineId(Long medicineId);
 
-	List<MedicineStock> getMedicineStockByPharmaId(Integer pharmaId);
+	List<MedicineStock> getMedicineStockByPharmaId(Long pharmaId);
+
+	boolean existsByMedicineId(Long medicineId);
+
+	boolean existsByMedicineIdInMedicineSerice(Long medicineId);
 }

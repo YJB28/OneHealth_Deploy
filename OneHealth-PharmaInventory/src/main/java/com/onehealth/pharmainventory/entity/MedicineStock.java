@@ -12,7 +12,7 @@ public class MedicineStock {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer medicineStockId;
+	private Long medicineStockId;
 
 	@OneToOne
 	@JoinColumn(name = "medicine_id", nullable = false)
@@ -20,10 +20,10 @@ public class MedicineStock {
 	private Medicine medicine;
 
 	@Column
-	private Integer pharmaId;
+	private Long pharmaId;
 
 	@Column
-	private Integer medicineUnits;
+	private Long medicineUnits;
 
 	@Column
 	private Date expDate;
@@ -45,7 +45,7 @@ public class MedicineStock {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MedicineStock(Integer medicineStockId, Medicine medicine, Integer pharmaId, Integer medicineUnits,
+	public MedicineStock(Long medicineStockId, Medicine medicine, Long pharmaId, Long medicineUnits,
 			Date expDate, Date mfgDate, String batchNo, BigDecimal price, String packSize) {
 		super();
 		this.medicineStockId = medicineStockId;
@@ -66,11 +66,11 @@ public class MedicineStock {
 				+ batchNo + ", price=" + price + ", packSize=" + packSize + "]";
 	}
 
-	public Integer getMedicineStockId() {
+	public Long getMedicineStockId() {
 		return medicineStockId;
 	}
 
-	public void setMedicineStockId(Integer medicineStockId) {
+	public void setMedicineStockId(Long medicineStockId) {
 		this.medicineStockId = medicineStockId;
 	}
 
@@ -82,19 +82,19 @@ public class MedicineStock {
 		this.medicine = medicine;
 	}
 
-	public Integer getPharmaId() {
+	public Long getPharmaId() {
 		return pharmaId;
 	}
 
-	public void setPharmaId(Integer pharmaId) {
+	public void setPharmaId(Long pharmaId) {
 		this.pharmaId = pharmaId;
 	}
 
-	public Integer getMedicineUnits() {
+	public Long getMedicineUnits() {
 		return medicineUnits;
 	}
 
-	public void setMedicineUnits(Integer medicineUnits) {
+	public void setMedicineUnits(Long medicineUnits) {
 		this.medicineUnits = medicineUnits;
 	}
 

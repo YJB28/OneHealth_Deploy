@@ -21,4 +21,6 @@ public interface MedicineRepository extends JpaRepository<Medicine, Long> {
 	// Check if a medicine exists with the given pharmacy ID and medicine name
 	// (case-insensitive).
 	boolean existsByPharmaIdAndMedicineNameIgnoreCase(Long pharmaId, String medicineName);
+
+//	boolean existsByMedicineId(Long medicineId);
 }
