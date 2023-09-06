@@ -77,6 +77,12 @@ public class RouteConfig {
 				.route("OneHealth-HospitalService",
 						r -> r.path("/hservice/**").uri(
 								"https://hospitalservice-hitendra7-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("OneHealth-Discount",
+						r -> r.path("/discount/**")
+								.uri("https://discount-hitendra7-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
+				.route("OneHealth-review",
+						r -> r.path("/review/**")
+								.uri("https://review-hitendra7-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/"))
 
 				// Add more routes for other microservices as needed
 				.build();
